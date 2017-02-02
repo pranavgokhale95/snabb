@@ -15,6 +15,6 @@ function run (parameters)
 	config.link(c,"repeater.output -> writer.input");
 
 	engine.configure(c);
-	engine.main( {duration=1, report = {shiwlinks=true}} )
+	engine.main( {duration=1, report = {showlinks=true}} )
 end
 	
