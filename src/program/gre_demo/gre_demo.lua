@@ -238,6 +238,16 @@ function run()
 	--config.app(c, "vm11", VM, { ipv4_address = "192.168.0.11", dst_ipv4_address = "192.168.0.4" })	
 	--config.link(c, "vm11.output -> vRouter.input")	
 	
+	ffi.cdef[[
+    		 int clock_gettime(clockid_t clk_id, struct timespec *tp);
+		 int snprintf ( char * s, size_t n, const char * format, ... );
+	]]
+
+	local buf = ffi.new("struct timespec")
+	ffi.C.clock_gettime(0,buf);
+	print(buf);
+--    	clock_gettime(CLOCK_REALTIME, &spec);
+
 	--[[
 	config.link(c, "vRouter.".. "1" .." -> vm" .. 1 .. ".input")	
 	config.link(c, "vRoute".. 2 .." -> vm" .. 2 .. ".input")	
